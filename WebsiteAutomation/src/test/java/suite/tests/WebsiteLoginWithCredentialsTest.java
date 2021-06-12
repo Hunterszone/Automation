@@ -7,10 +7,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class WebsiteLogout {
+public class WebsiteLoginWithCredentialsTest {
 	
 	@Test
-	public void logout() {
+	public void login() {
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -23,12 +23,8 @@ public class WebsiteLogout {
 		username.sendKeys("admin");
 		password.sendKeys("Troll123!");
 		login.click();
-		
-		driver.get("http://hunterszone.hyperphp.com/WebSite/auth/user_login.php");
-		WebElement logout = driver.findElement(By.id("logout"));
-		logout.click();
 
-		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/index.php";
+		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/auth/user_login.php";
 		String expectedUrl = driver.getCurrentUrl();
 
 		Assert.assertEquals(expectedUrl, actualUrl);

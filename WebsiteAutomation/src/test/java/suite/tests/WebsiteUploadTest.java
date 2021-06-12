@@ -8,10 +8,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class WebsiteProfile {
-	
+public class WebsiteUploadTest {
+
 	private WebDriver driver;
-	
+
 	@Before
 	public void setUp() {
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
@@ -26,21 +26,32 @@ public class WebsiteProfile {
 		username.sendKeys("admin");
 		password.sendKeys("Troll123!");
 		login.click();
-		
+
 		driver.get("http://hunterszone.hyperphp.com/WebSite/auth/user_login.php");
 	}
-	
-	@Test
-	public void openProfileFromMenu() {
-		
-		WebElement profile = driver.findElement(By.id("profile"));
-		profile.click();
 
-		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/auth/user_login.php";
+	@Test
+	public void uploadFile() {
+
+		WebElement uploadMenu = driver.findElement(By.xpath("//a[text()=' Upload']"));
+		uploadMenu.click();
+
+		WebElement files = driver.findElement(By.id("files"));
+		files.click();
+
+		driver.get("http://hunterszone.hyperphp.com/WebSite/file_upload.html");
+
+		WebElement chooseFile = driver.findElement(By.name("file"));
+		chooseFile.sendKeys(System.getProperty("user.home") + "\\Desktop\\Dummy.txt");
+
+		WebElement uploadButton = driver.findElement(By.xpath("//button[text()='Upload']"));
+		uploadButton.click();
+
+		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/account/file_upload.php";
 		String expectedUrl = driver.getCurrentUrl();
 
 		Assert.assertEquals(expectedUrl, actualUrl);
-		
+
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -50,18 +61,29 @@ public class WebsiteProfile {
 
 		driver.quit();
 	}
-	
-	@Test
-	public void openProfileFromAdminBanner() {
-		
-		WebElement profile = driver.findElement(By.xpath("//p[text()='admin']"));
-		profile.click();
 
-		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/auth/user_login.php";
+	@Test
+	public void uploadAvatar() {
+
+		WebElement uploadMenu = driver.findElement(By.xpath("//a[text()=' Upload']"));
+		uploadMenu.click();
+
+		WebElement files = driver.findElement(By.id("avatar"));
+		files.click();
+
+		driver.get("http://hunterszone.hyperphp.com/WebSite/avatar_upload.html");
+
+		WebElement chooseFile = driver.findElement(By.name("file"));
+		chooseFile.sendKeys(System.getProperty("user.home") + "\\Desktop\\Avatar.jpg");
+
+		WebElement uploadButton = driver.findElement(By.xpath("//button[text()='Upload']"));
+		uploadButton.click();
+
+		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/account/upload.php";
 		String expectedUrl = driver.getCurrentUrl();
 
 		Assert.assertEquals(expectedUrl, actualUrl);
-		
+
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {

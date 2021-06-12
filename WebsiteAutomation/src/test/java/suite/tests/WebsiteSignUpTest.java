@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class WebsiteSignUp {
+public class WebsiteSignUpTest {
 	
 	@Test
 	public void openSignUp() {
