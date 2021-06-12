@@ -1,0 +1,9 @@
+suite\tests\WebsiteLogout.class
+suite\tests\WebsiteProfile.class
+suite\tests\WebsiteSignUp.class
+suite\tests\WebsiteContacts.class
+suite\tests\WebsiteLoginWithQRCode.class
+suite\tests\WebsiteQuizzes.class
+suite\tests\WebsiteArticles.class
+suite\tests\WebsiteLoginWithCredentials.class
+suite\tests\WebsiteUpload.class
