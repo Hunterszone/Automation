@@ -16,18 +16,6 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			<plugin>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<configuration>
-					<includes>
-						<include>TestFail.java</include>
-						<includesFile>**/*Test.java</includesFile>
-					</includes>
-					<testFailureIgnore>true</testFailureIgnore>
-					<forkCount>1</forkCount>
-					<reuseForks>false</reuseForks>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
