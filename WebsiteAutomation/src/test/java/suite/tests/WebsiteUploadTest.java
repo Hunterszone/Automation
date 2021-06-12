@@ -1,5 +1,13 @@
 package suite.tests;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +21,8 @@ public class WebsiteUploadTest {
 	private WebDriver driver;
 
 	@Before
-	public void setUp() {
+	public void setUp() throws MalformedURLException, IOException {
+		
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -31,7 +40,9 @@ public class WebsiteUploadTest {
 	}
 
 	@Test
-	public void uploadFile() {
+	public void uploadFile() throws MalformedURLException, IOException {
+		
+		downloadFile(new URL("https://drive.google.com/file/d/1DrCuS8ZvMwRfVOOYwQ1XKXOVyfD60a6b/view?usp=sharing"), System.getProperty("user.home") + "\\Desktop\\Dummy.txt");
 
 		WebElement uploadMenu = driver.findElement(By.xpath("//a[text()=' Upload']"));
 		uploadMenu.click();
@@ -63,8 +74,10 @@ public class WebsiteUploadTest {
 	}
 
 	@Test
-	public void uploadAvatar() {
-
+	public void uploadAvatar() throws MalformedURLException, IOException {
+		
+		downloadFile(new URL("https://drive.google.com/file/d/1FPKD2FDIBt3IIvn4jX1Hk54XxWr_s_au/view?usp=sharing"), System.getProperty("user.home") + "\\Desktop\\Avatar.jpg");
+		
 		WebElement uploadMenu = driver.findElement(By.xpath("//a[text()=' Upload']"));
 		uploadMenu.click();
 
@@ -92,5 +105,13 @@ public class WebsiteUploadTest {
 		}
 
 		driver.quit();
+	}
+
+	private static void downloadFile(URL url, String outputFileName) throws IOException {
+		try (InputStream in = url.openStream();
+				ReadableByteChannel rbc = Channels.newChannel(in);
+				FileOutputStream fos = new FileOutputStream(outputFileName)) {
+			fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+		}
 	}
 }
