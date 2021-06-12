@@ -57,8 +57,11 @@ public class WebsiteUploadTest {
 
 		WebElement uploadButton = driver.findElement(By.xpath("//button[text()='Upload']"));
 		uploadButton.click();
+		
+		WebElement displayFile = driver.findElement(By.xpath("//a[text()='Click here to view file']"));
+		displayFile.click();
 
-		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/account/file_upload.php";
+		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/uploads/Dummy.txt";
 		String expectedUrl = driver.getCurrentUrl();
 
 		Assert.assertEquals(expectedUrl, actualUrl);
@@ -91,8 +94,11 @@ public class WebsiteUploadTest {
 
 		WebElement uploadButton = driver.findElement(By.xpath("//button[text()='Upload']"));
 		uploadButton.click();
+		
+		WebElement displayFile = driver.findElement(By.xpath("//a[text()='Click here to view file']"));
+		displayFile.click();
 
-		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/account/upload.php";
+		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/gallery/Avatar.jpg";
 		String expectedUrl = driver.getCurrentUrl();
 
 		Assert.assertEquals(expectedUrl, actualUrl);
@@ -107,7 +113,7 @@ public class WebsiteUploadTest {
 		driver.quit();
 	}
 
-	private static void downloadFile(URL url, String outputFileName) throws IOException {
+	private void downloadFile(URL url, String outputFileName) throws IOException {
 		try (InputStream in = url.openStream();
 				ReadableByteChannel rbc = Channels.newChannel(in);
 				FileOutputStream fos = new FileOutputStream(outputFileName)) {
