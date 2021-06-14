@@ -12,6 +12,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.InvalidArgumentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -53,7 +54,11 @@ public class WebsiteUploadTest {
 		driver.get("http://hunterszone.hyperphp.com/WebSite/file_upload.html");
 
 		WebElement chooseFile = driver.findElement(By.name("file"));
-		chooseFile.sendKeys(System.getProperty("user.home") + "\\Desktop\\Dummy.txt");
+		try {
+			chooseFile.sendKeys(System.getProperty("user.home") + "\\Desktop\\Dummy.txt");			
+		} catch (InvalidArgumentException e) {
+			// TODO: handle exception
+		}
 
 		WebElement uploadButton = driver.findElement(By.xpath("//button[text()='Upload']"));
 		uploadButton.click();
@@ -90,7 +95,11 @@ public class WebsiteUploadTest {
 		driver.get("http://hunterszone.hyperphp.com/WebSite/avatar_upload.html");
 
 		WebElement chooseFile = driver.findElement(By.name("file"));
-		chooseFile.sendKeys(System.getProperty("user.home") + "\\Desktop\\Avatar.jpg");
+		try {
+			chooseFile.sendKeys(System.getProperty("user.home") + "\\Desktop\\Avatar.jpg");			
+		} catch (InvalidArgumentException e) {
+			// TODO: handle exception
+		}
 
 		WebElement uploadButton = driver.findElement(By.xpath("//button[text()='Upload']"));
 		uploadButton.click();
