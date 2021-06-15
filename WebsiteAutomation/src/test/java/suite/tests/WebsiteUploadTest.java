@@ -61,6 +61,7 @@ public class WebsiteUploadTest {
 		} catch (InvalidArgumentException e) {
 			if(e instanceof InvalidArgumentException) {
 				actualUrl = driver.getCurrentUrl();
+				Assert.assertEquals(driver.getCurrentUrl(), actualUrl);
 				return;
 			}
 		}
@@ -104,6 +105,7 @@ public class WebsiteUploadTest {
 		} catch (Exception e) {
 			if(e instanceof InvalidArgumentException) {
 				actualUrl = driver.getCurrentUrl();
+				Assert.assertEquals(driver.getCurrentUrl(), actualUrl);
 				return;
 			}
 		}
