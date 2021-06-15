@@ -59,7 +59,10 @@ public class WebsiteUploadTest {
 			chooseFile.sendKeys(System.getProperty("user.home") + "\\Desktop\\Dummy.txt");			
 			actualUrl = driver.getCurrentUrl();
 		} catch (InvalidArgumentException e) {
-			// TODO: handle exception
+			if(e instanceof InvalidArgumentException) {
+				actualUrl = driver.getCurrentUrl();
+				return;
+			}
 		}
 
 		WebElement uploadButton = driver.findElement(By.xpath("//button[text()='Upload']"));
@@ -98,9 +101,11 @@ public class WebsiteUploadTest {
 		WebElement chooseFile = driver.findElement(By.name("file"));
 		try {
 			chooseFile.sendKeys(System.getProperty("user.home") + "\\Desktop\\Avatar.jpg");
-			actualUrl = driver.getCurrentUrl();
-		} catch (InvalidArgumentException e) {
-			// TODO: handle exception
+		} catch (Exception e) {
+			if(e instanceof InvalidArgumentException) {
+				actualUrl = driver.getCurrentUrl();
+				return;
+			}
 		}
 
 		WebElement uploadButton = driver.findElement(By.xpath("//button[text()='Upload']"));
