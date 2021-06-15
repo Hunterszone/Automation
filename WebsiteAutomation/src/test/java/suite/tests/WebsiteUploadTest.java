@@ -20,6 +20,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class WebsiteUploadTest {
 
 	private WebDriver driver;
+	private String actualUrl;
 
 	@Before
 	public void setUp() throws MalformedURLException, IOException {
@@ -56,6 +57,7 @@ public class WebsiteUploadTest {
 		WebElement chooseFile = driver.findElement(By.name("file"));
 		try {
 			chooseFile.sendKeys(System.getProperty("user.home") + "\\Desktop\\Dummy.txt");			
+			actualUrl = driver.getCurrentUrl();
 		} catch (InvalidArgumentException e) {
 			// TODO: handle exception
 		}
@@ -66,10 +68,9 @@ public class WebsiteUploadTest {
 		WebElement displayFile = driver.findElement(By.xpath("//a[text()='Click here to view file']"));
 		displayFile.click();
 
-		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/uploads/Dummy.txt";
-		String expectedUrl = driver.getCurrentUrl();
+		actualUrl = "http://hunterszone.hyperphp.com/WebSite/uploads/Dummy.txt";
 
-		Assert.assertEquals(expectedUrl, actualUrl);
+		Assert.assertEquals(driver.getCurrentUrl(), actualUrl);
 
 		try {
 			Thread.sleep(2000);
@@ -96,7 +97,8 @@ public class WebsiteUploadTest {
 
 		WebElement chooseFile = driver.findElement(By.name("file"));
 		try {
-			chooseFile.sendKeys(System.getProperty("user.home") + "\\Desktop\\Avatar.jpg");			
+			chooseFile.sendKeys(System.getProperty("user.home") + "\\Desktop\\Avatar.jpg");
+			actualUrl = driver.getCurrentUrl();
 		} catch (InvalidArgumentException e) {
 			// TODO: handle exception
 		}
@@ -107,10 +109,9 @@ public class WebsiteUploadTest {
 		WebElement displayFile = driver.findElement(By.xpath("//a[text()='Click here to view file']"));
 		displayFile.click();
 
-		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/gallery/Avatar.jpg";
-		String expectedUrl = driver.getCurrentUrl();
+		actualUrl = "http://hunterszone.hyperphp.com/WebSite/gallery/Avatar.jpg";
 
-		Assert.assertEquals(expectedUrl, actualUrl);
+		Assert.assertEquals(driver.getCurrentUrl(), actualUrl);
 
 		try {
 			Thread.sleep(2000);
