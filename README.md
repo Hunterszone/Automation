@@ -1,3 +1,3 @@
-# Selenium
+# Automation
 
 ## WebSite Selenium tests
