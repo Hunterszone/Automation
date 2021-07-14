@@ -3,14 +3,15 @@ package suite.tests;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import pages.WebsiteQuizzes;
 
 public class WebsiteQuizzesTest {
 	
 	private WebDriver driver;
+	private WebsiteQuizzes websiteQuizzes;
 	
 	@Before
 	public void setUp() {
@@ -18,25 +19,19 @@ public class WebsiteQuizzesTest {
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.get("http://hunterszone.hyperphp.com/WebSite/forms/login_form.php");
-		WebElement username = driver.findElement(By.name("username"));
-		WebElement password = driver.findElement(By.name("password"));
-		WebElement login = driver.findElement(By.xpath("//button[text()='Login']"));
-
-		username.sendKeys("admin");
-		password.sendKeys("Troll123!");
-		login.click();
+		
+		websiteQuizzes = new WebsiteQuizzes(driver);
+		websiteQuizzes.loginToSite("admin", "Troll123!");
 		
 		driver.get("http://hunterszone.hyperphp.com/WebSite/auth/user_login.php");
 		
-		WebElement webQuizzes = driver.findElement(By.id("quiz"));
-		webQuizzes.click();
+		websiteQuizzes.clickQuizzButton();
 	}
 	
 	@Test
 	public void openHTMLQuiz() {
 		
-		WebElement htmlQuizz = driver.findElement(By.xpath("//a[text()='HTML']"));
-		htmlQuizz.click();
+		websiteQuizzes.clickHtmlQuizz();
 		
 		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/quizes/quizes.php";
 		String expectedUrl = driver.getCurrentUrl();
@@ -56,8 +51,7 @@ public class WebsiteQuizzesTest {
 	@Test
 	public void openCSSQuiz() {
 		
-		WebElement cssQuizz = driver.findElement(By.xpath("//a[text()='CSS']"));
-		cssQuizz.click();
+		websiteQuizzes.clickCssQuizz();
 		
 		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/quizes/quizes.php";
 		String expectedUrl = driver.getCurrentUrl();
@@ -77,8 +71,7 @@ public class WebsiteQuizzesTest {
 	@Test
 	public void openJSQuiz() {
 		
-		WebElement jsQuizz = driver.findElement(By.xpath("//a[text()='JavaScript']"));
-		jsQuizz.click();
+		websiteQuizzes.clickJsQuizz();
 		
 		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/quizes/quizes.php";
 		String expectedUrl = driver.getCurrentUrl();
@@ -98,8 +91,7 @@ public class WebsiteQuizzesTest {
 	@Test
 	public void openPHPQuiz() {
 		
-		WebElement phpQuizz = driver.findElement(By.xpath("//a[text()='PHP']"));
-		phpQuizz.click();
+		websiteQuizzes.clickPhpQuizz();
 
 		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/quizes/quizes.php";
 		String expectedUrl = driver.getCurrentUrl();
