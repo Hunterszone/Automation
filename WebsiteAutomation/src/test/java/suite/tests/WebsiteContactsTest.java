@@ -18,25 +18,25 @@ public class WebsiteContactsTest {
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("http://hunterszone.hyperphp.com/WebSite/forms/login_form.php");
+		driver.get("http://hunterszone.byethost11.com/WebSite/forms/login_form.php");
 	}
 	
 	@Test
 	public void sendFeedback() {
 		
 		websiteContacts = new WebsiteContacts(driver);
-		websiteContacts.loginToSite("admin", "Troll123!");
+		websiteContacts.loginToSite("admin", "Test123!");
 		
-		driver.get("http://hunterszone.hyperphp.com/WebSite/auth/user_login.php");
+		driver.get("http://hunterszone.byethost11.com/WebSite/auth/user_login.php");
 		
 		websiteContacts.clickContacts();
 		websiteContacts.clickFeedback();
 		
-		driver.get("http://hunterszone.hyperphp.com/WebSite/forms/contact_form.php");
+		driver.get("http://hunterszone.byethost11.com/WebSite/forms/contact_form.php");
 		
 		websiteContacts.sendFeedback("admin", "k.drenski91@aol.com", "This is a test feedback!");
 		
-		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/forms/contact_form.php";
+		String actualUrl = "http://hunterszone.byethost11.com/WebSite/forms/contact_form.php";
 		String expectedUrl = driver.getCurrentUrl();
 
 		Assert.assertEquals(expectedUrl, actualUrl);

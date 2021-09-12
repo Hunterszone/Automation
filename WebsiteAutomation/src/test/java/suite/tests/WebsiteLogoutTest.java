@@ -18,20 +18,20 @@ public class WebsiteLogoutTest {
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("http://hunterszone.hyperphp.com/WebSite/forms/login_form.php");
+		driver.get("http://hunterszone.byethost11.com/WebSite/forms/login_form.php");
 	}
 	
 	@Test
 	public void logout() {
 		
 		websiteLogout = new WebsiteLogout(driver);
-		websiteLogout.loginToSite("admin", "Troll123!");
+		websiteLogout.loginToSite("admin", "Test123!");
 		
-		driver.get("http://hunterszone.hyperphp.com/WebSite/auth/user_login.php");
+		driver.get("http://hunterszone.byethost11.com/WebSite/auth/user_login.php");
 		
 		websiteLogout.clickLogout();
 
-		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/index.php";
+		String actualUrl = "http://hunterszone.byethost11.com/WebSite/index.php";
 		String expectedUrl = driver.getCurrentUrl();
 
 		Assert.assertEquals(expectedUrl, actualUrl);

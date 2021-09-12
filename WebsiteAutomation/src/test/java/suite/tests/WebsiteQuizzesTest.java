@@ -18,12 +18,12 @@ public class WebsiteQuizzesTest {
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("http://hunterszone.hyperphp.com/WebSite/forms/login_form.php");
+		driver.get("http://hunterszone.byethost11.com/WebSite/forms/login_form.php");
 		
 		websiteQuizzes = new WebsiteQuizzes(driver);
-		websiteQuizzes.loginToSite("admin", "Troll123!");
+		websiteQuizzes.loginToSite("admin", "Test123!");
 		
-		driver.get("http://hunterszone.hyperphp.com/WebSite/auth/user_login.php");
+		driver.get("http://hunterszone.byethost11.com/WebSite/auth/user_login.php");
 		
 		websiteQuizzes.clickQuizzButton();
 	}
@@ -33,7 +33,7 @@ public class WebsiteQuizzesTest {
 		
 		websiteQuizzes.clickHtmlQuizz();
 		
-		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/quizes/quizes.php";
+		String actualUrl = "http://hunterszone.byethost11.com/WebSite/quizes/quizes.php";
 		String expectedUrl = driver.getCurrentUrl();
 
 		Assert.assertEquals(expectedUrl, actualUrl);
@@ -53,7 +53,7 @@ public class WebsiteQuizzesTest {
 		
 		websiteQuizzes.clickCssQuizz();
 		
-		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/quizes/quizes.php";
+		String actualUrl = "http://hunterszone.byethost11.com/WebSite/quizes/quizes.php";
 		String expectedUrl = driver.getCurrentUrl();
 
 		Assert.assertEquals(expectedUrl, actualUrl);
@@ -73,7 +73,7 @@ public class WebsiteQuizzesTest {
 		
 		websiteQuizzes.clickJsQuizz();
 		
-		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/quizes/quizes.php";
+		String actualUrl = "http://hunterszone.byethost11.com/WebSite/quizes/quizes.php";
 		String expectedUrl = driver.getCurrentUrl();
 
 		Assert.assertEquals(expectedUrl, actualUrl);
@@ -93,7 +93,7 @@ public class WebsiteQuizzesTest {
 		
 		websiteQuizzes.clickPhpQuizz();
 
-		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/quizes/quizes.php";
+		String actualUrl = "http://hunterszone.byethost11.com/WebSite/quizes/quizes.php";
 		String expectedUrl = driver.getCurrentUrl();
 
 		Assert.assertEquals(expectedUrl, actualUrl);

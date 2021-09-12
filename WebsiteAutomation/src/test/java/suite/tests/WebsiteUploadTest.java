@@ -28,17 +28,17 @@ public class WebsiteUploadTest {
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("http://hunterszone.hyperphp.com/WebSite/forms/login_form.php");
+		driver.get("http://hunterszone.byethost11.com/WebSite/forms/login_form.php");
 
 		WebElement username = driver.findElement(By.name("username"));
 		WebElement password = driver.findElement(By.name("password"));
 		WebElement login = driver.findElement(By.xpath("//button[text()='Login']"));
 
 		username.sendKeys("admin");
-		password.sendKeys("Troll123!");
+		password.sendKeys("Test123!");
 		login.click();
 
-		driver.get("http://hunterszone.hyperphp.com/WebSite/auth/user_login.php");
+		driver.get("http://hunterszone.byethost11.com/WebSite/auth/user_login.php");
 	}
 
 	@Test
@@ -52,7 +52,7 @@ public class WebsiteUploadTest {
 		WebElement files = driver.findElement(By.id("files"));
 		files.click();
 
-		driver.get("http://hunterszone.hyperphp.com/WebSite/file_upload.html");
+		driver.get("http://hunterszone.byethost11.com/WebSite/file_upload.html");
 
 		WebElement chooseFile = driver.findElement(By.name("file"));
 		try {
@@ -72,7 +72,7 @@ public class WebsiteUploadTest {
 		WebElement displayFile = driver.findElement(By.xpath("//a[text()='Click here to view file']"));
 		displayFile.click();
 
-		actualUrl = "http://hunterszone.hyperphp.com/WebSite/uploads/Dummy.txt";
+		actualUrl = "http://hunterszone.byethost11.com/WebSite/uploads/Dummy.txt";
 
 		Assert.assertEquals(driver.getCurrentUrl(), actualUrl);
 
@@ -97,7 +97,7 @@ public class WebsiteUploadTest {
 		WebElement files = driver.findElement(By.id("avatar"));
 		files.click();
 
-		driver.get("http://hunterszone.hyperphp.com/WebSite/avatar_upload.html");
+		driver.get("http://hunterszone.byethost11.com/WebSite/avatar_upload.html");
 
 		WebElement chooseFile = driver.findElement(By.name("file"));
 		try {
@@ -116,7 +116,7 @@ public class WebsiteUploadTest {
 		WebElement displayFile = driver.findElement(By.xpath("//a[text()='Click here to view file']"));
 		displayFile.click();
 
-		actualUrl = "http://hunterszone.hyperphp.com/WebSite/gallery/Avatar.jpg";
+		actualUrl = "http://hunterszone.byethost11.com/WebSite/gallery/Avatar.jpg";
 
 		Assert.assertEquals(driver.getCurrentUrl(), actualUrl);
 

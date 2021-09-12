@@ -18,12 +18,12 @@ public class WebsiteProfileTest {
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("http://hunterszone.hyperphp.com/WebSite/forms/login_form.php");
+		driver.get("http://hunterszone.byethost11.com/WebSite/forms/login_form.php");
 
 		websiteProfile = new WebsiteProfile(driver);
-		websiteProfile.loginToSite("admin", "Troll123!");
+		websiteProfile.loginToSite("admin", "Test123!");
 		
-		driver.get("http://hunterszone.hyperphp.com/WebSite/auth/user_login.php");
+		driver.get("http://hunterszone.byethost11.com/WebSite/auth/user_login.php");
 	}
 	
 	@Test
@@ -31,7 +31,7 @@ public class WebsiteProfileTest {
 		
 		websiteProfile.clickProfileButton();
 
-		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/auth/user_login.php";
+		String actualUrl = "http://hunterszone.byethost11.com/WebSite/auth/user_login.php";
 		String expectedUrl = driver.getCurrentUrl();
 
 		Assert.assertEquals(expectedUrl, actualUrl);
@@ -51,7 +51,7 @@ public class WebsiteProfileTest {
 		
 		websiteProfile.clickProfileBanner();
 
-		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/auth/user_login.php";
+		String actualUrl = "http://hunterszone.byethost11.com/WebSite/auth/user_login.php";
 		String expectedUrl = driver.getCurrentUrl();
 
 		Assert.assertEquals(expectedUrl, actualUrl);

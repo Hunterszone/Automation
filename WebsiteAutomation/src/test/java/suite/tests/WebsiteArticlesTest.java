@@ -19,7 +19,7 @@ public class WebsiteArticlesTest {
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("http://hunterszone.hyperphp.com/WebSite/index.php");
+		driver.get("http://hunterszone.byethost11.com/WebSite/index.php");
 	}
 	
 	@Test
@@ -36,7 +36,7 @@ public class WebsiteArticlesTest {
 			e.printStackTrace();
 		}
 		
-		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/index.php?i=1";
+		String actualUrl = "http://hunterszone.byethost11.com/WebSite/index.php?i=1";
 		String expectedUrl = driver.getCurrentUrl();
 		Assert.assertEquals(expectedUrl, actualUrl);
 		driver.quit();
@@ -56,7 +56,7 @@ public class WebsiteArticlesTest {
 			e.printStackTrace();
 		}
 		
-		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/index.php?i=1";
+		String actualUrl = "http://hunterszone.byethost11.com/WebSite/index.php?i=1";
 		String expectedUrl = driver.getCurrentUrl();
 		Assert.assertEquals(expectedUrl, actualUrl);
 		driver.quit();
@@ -76,7 +76,7 @@ public class WebsiteArticlesTest {
 			e.printStackTrace();
 		}
 		
-		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/index.php?i=1";
+		String actualUrl = "http://hunterszone.byethost11.com/WebSite/index.php?i=1";
 		String expectedUrl = driver.getCurrentUrl();
 		Assert.assertEquals(expectedUrl, actualUrl);
 		driver.quit();
@@ -96,7 +96,7 @@ public class WebsiteArticlesTest {
 			e.printStackTrace();
 		}
 		
-		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/index.php?i=1";
+		String actualUrl = "http://hunterszone.byethost11.com/WebSite/index.php?i=1";
 		String expectedUrl = driver.getCurrentUrl();
 		Assert.assertEquals(expectedUrl, actualUrl);
 		driver.quit();

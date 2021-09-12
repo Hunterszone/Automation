@@ -33,7 +33,7 @@ public class WebsiteLoginWithQRCodeTest {
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("http://hunterszone.hyperphp.com/WebSite/qr/generateQR.php");		
+		driver.get("http://hunterszone.byethost11.com/WebSite/qr/generateQR.php");		
 	}
 
 	@Test
@@ -62,7 +62,7 @@ public class WebsiteLoginWithQRCodeTest {
 		// Click link to enter token
 		websiteLoginWithQRCode.clickCodeLink();
 
-		driver.get("http://hunterszone.hyperphp.com/WebSite/qr/verifyQR.html");
+		driver.get("http://hunterszone.byethost11.com/WebSite/qr/verifyQR.html");
 		
 		// Generate token
 		String otpKeyStr = "6jm7n6xwitpjooh7ihewyyzeux7aqmw2"; // <- this 2FA secret key.

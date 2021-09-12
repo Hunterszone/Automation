@@ -18,16 +18,16 @@ public class WebsiteLoginWithCredentialsTest {
 		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get("http://hunterszone.hyperphp.com/WebSite/forms/login_form.php");
+		driver.get("http://hunterszone.byethost11.com/WebSite/forms/login_form.php");
 	}
 	
 	@Test
 	public void login() {
 		
 		websiteLoginWithCredentials = new WebsiteLoginWithCredentials(driver);
-		websiteLoginWithCredentials.loginToSite("admin", "Troll123!");
+		websiteLoginWithCredentials.loginToSite("admin", "Test123!");
 		
-		String actualUrl = "http://hunterszone.hyperphp.com/WebSite/auth/user_login.php";
+		String actualUrl = "http://hunterszone.byethost11.com/WebSite/auth/user_login.php";
 		String expectedUrl = driver.getCurrentUrl();
 
 		Assert.assertEquals(expectedUrl, actualUrl);
