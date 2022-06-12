@@ -44,7 +44,7 @@ public class WebsiteUploadTest {
 	@Test
 	public void uploadFile() throws MalformedURLException, IOException {
 		
-		downloadFile(new URL("https://drive.google.com/file/d/1DrCuS8ZvMwRfVOOYwQ1XKXOVyfD60a6b/view?usp=sharing"), System.getProperty("user.home") + "\\Desktop\\Dummy.txt");
+		downloadFile(new URL("https://drive.google.com/file/d/1FPKD2FDIBt3IIvn4jX1Hk54XxWr_s_au/view?usp=sharing"), System.getProperty("user.home") + "\\Desktop\\Dummy.txt");
 
 		WebElement uploadMenu = driver.findElement(By.xpath("//a[text()=' Upload']"));
 		uploadMenu.click();
